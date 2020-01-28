@@ -1,0 +1,61 @@
+.container {
+    margin-top: 5%;
+}
+.card-img-top {
+    width: 100%;
+    height: 200px; 
+}
+.card {
+    height: 445px;
+    overflow: auto;
+}
+.col-xl-4 {
+    margin-bottom: 5%;
+}
+.post__btn,.post__btn-form {
+    margin-left: 50%;
+    transform: translate(-50%);
+    margin-top: 5%;
+}
+.formAdd {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.733);
+}
+.container-post {
+    max-width: 500px;
+    height: 420px;
+    border-radius: 20px;
+    background-color: rgb(102, 171, 231);
+    margin: auto;
+    margin-top: 20%;
+    transform: translateY(-20%);
+}
+
+#post__desc {
+    width: 95%;
+    height: 50%;
+   margin-left: 10px;
+   margin-top: 20px;
+   padding-left: 15px;
+   border: none;
+   border-radius: 5px;
+}
+label {
+    font-size: 19px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+input {
+    width: 40%;
+    float: right;
+    margin-right: 120px;  
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
