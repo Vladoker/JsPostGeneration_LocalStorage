@@ -7,15 +7,27 @@
 }
 .card {
     height: 445px;
+}
+.card-title,.card-text {
+    max-width: 320px;
+    overflow: hidden;
+}
+.card-text {
+    height: 120px;
     overflow: auto;
 }
 .col-xl-4 {
     margin-bottom: 5%;
 }
-.post__btn,.post__btn-form {
+.post__btn-form {
     margin-left: 50%;
     transform: translate(-50%);
     margin-top: 5%;
+}
+.containerButton {
+    margin-left: 50%;
+    transform: translate(-50%);
+    margin-bottom: 5%;
 }
 .formAdd {
     display: none;

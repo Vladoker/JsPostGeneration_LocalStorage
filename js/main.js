@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
 
     const btnAdd = document.querySelector(".post__btn"),
           btnFormAdd = document.querySelector(".post__btn-form"),
+          btnClearAll = document.querySelector(".post__clear"),
           rowCards = document.querySelector(".card-deck"),
           formAdd = document.querySelector(".formAdd"),
           textFieldImage = document.getElementById("post__image"),
@@ -10,7 +11,11 @@ document.addEventListener("DOMContentLoaded", ()=> {
           textFieldDesc = document.getElementById("post__desc");
          
 
+    const posts = JSON.parse(localStorage.getItem("myPost")) || [];
 
+    const toStorage = () => {
+        localStorage.setItem("myPost",  JSON.stringify(posts));
+      };
 
     const addPost = (dataImage, dataTitle, dataDesc)=> {
         const col = document.createElement("div"),
@@ -50,6 +55,12 @@ document.addEventListener("DOMContentLoaded", ()=> {
         rowCards.appendChild(col);
     };
 
+    if(posts.length != 0) {
+        posts.forEach(value => {
+            addPost(value.image, value.title, value.desc);
+        });      
+    }
+
     btnAdd.addEventListener("click", () => {
         formAdd.style.display = "block";      
     });
@@ -59,8 +70,21 @@ document.addEventListener("DOMContentLoaded", ()=> {
         formAdd.style.display = "none";   
 
         let random = "https://i.ytimg.com/vi/69C0ga-GloU/maxresdefault.jpg";
+        const obj = {};
+              
+        addPost(textFieldImage.value != "" ? textFieldImage.value:random, textFieldTitle.value, textFieldDesc.value);
+             
+        obj["image"] = textFieldImage.value != "" ? textFieldImage.value:random;
+        obj["title"] =  textFieldTitle.value;
+        obj["desc"] =  textFieldDesc.value;
         
-        addPost(textFieldImage.value != "" ? textFieldImage.value:random, textFieldTitle.value, textFieldDesc.value);   
+        posts.push(obj);   
+        toStorage();
+    });
+
+    btnClearAll.addEventListener("click",()=>{
+        localStorage.clear();
+        location.reload();
     });
 
 });
